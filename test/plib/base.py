@@ -39,9 +39,9 @@ class Point:
     @classmethod
     def from_json(cls, js: dict) -> "Point":
         if "lat" not in js['location'] and "lon" in js['location']:
-            return cls(0, float(js["location"]["lon"]))
+            return cls(0.0, float(js["location"]["lon"]))
         elif "lat" in js['location'] and "lon" not in js['location']:
-            return cls(float(js["location"]["lat"], 0))
+            return cls(float(js["location"]["lat"], 0.0))
         else:
             return cls(float(js["location"]["lat"]), float(js["location"]["lon"]))
 
@@ -62,8 +62,7 @@ class Station:
         with open(station) as f:
             js = json.load(f)
         for i in js:
-            if "lat" in i['location'] and "lon" in i['location']:
-                self.storageSt.append(Point.from_json(i))
+            self.storageSt.append(Point.from_json(i))
 
 
     def minSq(self):
