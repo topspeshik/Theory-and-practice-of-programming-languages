@@ -46,7 +46,13 @@ internal class SpecialHashMapTest{
 
         assertEquals(mutableMapOf("1" to 10, "2" to 20, "3" to 30), specialHashMapTest.ploc["<>20"])
         assertEquals(mutableMapOf("1" to 10, "2" to 20, "3" to 30), specialHashMapTest.ploc["<=30"])
+
+
+        assertEquals(mutableMapOf("(1, 5, 3)" to 400), specialHashMapTest.ploc["<5 /    >=5/ >=3"])
+
+
         assertFailsWith<PlocException> { specialHashMapTest.ploc["dsdasda"] }
+        assertFailsWith<PlocException> { specialHashMapTest.ploc["<5 0   >=5 0 >=3"] }
 
 
     }

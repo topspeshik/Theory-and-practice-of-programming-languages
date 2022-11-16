@@ -1,25 +1,10 @@
 class SpecialHashMap : HashMap<String, Int>() {
 
-    val iloc: ArrayList<Int> = ArrayList()
+    val iloc = Iloc(this)
     val ploc = Ploc(this)
 
-
-    override fun put(key: String, value: Int): Int? {
-        super.put(key, value)
-
-        val sortedKeys = keys.toSortedSet { a, b ->
-            a.compareTo(b)
-        }
-
-        iloc.clear()
-        for (k in sortedKeys)
-            iloc.add(this[k]!!.toInt())
-
-
-        return super.put(key, value)
-
-    }
 }
+
 
 
 fun main() {
@@ -41,6 +26,8 @@ fun main() {
     println(map1.iloc[2])  // >>> 300
     println(map1.iloc[5])  // >>> 200
     println(map1.iloc[8])  // >>> 3
+
+
 
     println("Ploc")
 
