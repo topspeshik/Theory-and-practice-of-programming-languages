@@ -33,7 +33,7 @@ class Ploc(private val specialHashMap: SpecialHashMap) {
         val operators : CharArray = charArrayOf('=','>','<')
         for (i in 1 .. newCon.length-2){
             if (isNumeric(newCon[i-1].toString()) && newCon[i+1] in operators)
-                if (!isNumeric(newCon[i].toString()))
+                if (!isNumeric(newCon[i].toString()) && newCon[i] !in operators)
                     return newCon[i]
                 else throw PlocException()
         }
