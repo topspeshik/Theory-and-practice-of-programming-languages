@@ -39,7 +39,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         for i in range(len(im) - 1):
             for j in range(len(im) - 1):
                 if im[i - 1][j - 1] <  im[i][j] and im[i - 1][j + 1] <  im[i][j] and im[i - 1][j] <  im[i][j] and im[i][j - 1] <  im[i][j] and \
-                        im[i + 1][j] <  im[i][j] and im[i][j + 1] <  im[i][j] and im[i - 1][j + 1] <  im[i][j] and im[i + 2][j - 1] <  im[i][j]:
+                        im[i + 1][j] <  im[i][j] and im[i][j + 1] <  im[i][j] and im[i - 1][j + 1] <  im[i][j] and im[i + 1][j - 1] <  im[i][j]:
                     pos12.append([i,j])
 
         print(pos12)
